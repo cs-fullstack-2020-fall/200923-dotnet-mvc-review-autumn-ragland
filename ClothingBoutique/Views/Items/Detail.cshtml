@@ -1,0 +1,12 @@
+@model ClothingBoutique.Models.ItemModel
+<h1>Item Detail</h1>
+
+<partial name = "_itemDetail" model = "@Model"/>
+
+<a asp-area = "" asp-action = "Edit" asp-route-itemID = "@Model.id">
+    <button>Edit</button>
+</a>
+
+<a asp-area = "" asp-action = "Confirmation" asp-route-itemID = "@Model.id">
+    <button>Delete</button>
+</a>

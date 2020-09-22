@@ -1,0 +1,14 @@
+@model ClothingBoutique.Models.ItemModel
+<div>
+    <p>@Model.itemName</p>
+    <p>@Model.itemCategory</p>
+    <p>$@Model.price</p>
+    @if(@Model.inStock)
+    {
+        <p>Item is not In Stock</p>
+    }
+    @if(@Model.featured)
+    {
+        <p>Item is Featured</p>
+    }
+</div>

@@ -1,0 +1,9 @@
+@model ClothingBoutique.Models.ItemModel
+
+<h1>Add An Item to the Catalog</h1>
+
+@using (@Html.BeginForm("Create", "Item"))
+{
+  <partial name = "_formBody" model = "@Model"/>  
+  <button type="submit">Submit</button>
+}

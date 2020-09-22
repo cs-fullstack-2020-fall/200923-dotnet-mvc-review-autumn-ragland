@@ -1,0 +1,12 @@
+@model ClothingBoutique.Models.ItemModel
+
+<h1>Edit Item #@Model.id</h1>
+
+@using (@Html.BeginForm("Update", "Item"))
+{
+  <partial name = "_formBody" model = "@Model"/>  
+  <div>
+      @Html.HiddenFor(i => i.id)
+  </div>
+  <button type="submit">Submit</button>
+}

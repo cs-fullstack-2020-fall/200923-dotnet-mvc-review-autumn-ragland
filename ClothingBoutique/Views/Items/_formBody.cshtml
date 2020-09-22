@@ -1,0 +1,23 @@
+@model ClothingBoutique.Models.ItemModel
+
+<div>
+    @Html.LabelFor(i => i.itemName)
+    @Html.TextBoxFor(i => i.itemName)
+</div>
+<div>
+    @Html.LabelFor(i => i.price)
+    $@Html.TextBoxFor(i => i.price)
+    @Html.ValidationMessageFor(i => i.price)
+</div>
+<div>
+    @Html.LabelFor(i => i.itemCategory)
+    @Html.TextBoxFor(i => i.itemCategory)
+</div>
+<div>
+    @Html.LabelFor(i => i.inStock)
+    @Html.CheckBoxFor(i => i.inStock)
+</div>
+<div>
+    @Html.LabelFor(i => i.featured)
+    @Html.CheckBoxFor(i => i.featured)
+</div>

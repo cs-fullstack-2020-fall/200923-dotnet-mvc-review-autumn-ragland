@@ -1,0 +1,11 @@
+@model ClothingBoutique.Data.ApplicationDbContext
+
+<h1>List All Items</h1>
+
+@foreach (ItemModel item in @Model.items)
+{
+    <partial name = "_itemDetail" model = "@item"/>
+    <a asp-area = "" asp-action = "Detail" asp-route-itemID = "@item.id">
+        <button>Details</button>
+    </a>
+}
