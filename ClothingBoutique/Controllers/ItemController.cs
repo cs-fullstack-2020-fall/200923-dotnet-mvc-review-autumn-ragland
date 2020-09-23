@@ -67,10 +67,12 @@ namespace ClothingBoutique.Controllers
             ItemModel mItem = _context.items.FirstOrDefault(m => m.id == uItem.id);
 
             mItem.itemName = uItem.itemName;
-            mItem.itemCategory = uItem.itemName;
+            mItem.itemCategory = uItem.itemCategory;
             mItem.inStock = uItem.inStock;
             mItem.price = uItem.price;
             mItem.featured = uItem.featured;
+
+            _context.SaveChanges();
 
             return RedirectToAction("Detail",new{itemID = uItem.id});
         }
