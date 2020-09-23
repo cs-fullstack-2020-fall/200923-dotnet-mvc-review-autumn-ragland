@@ -34,18 +34,25 @@ namespace ClothingBoutique.Controllers
                 return View("Error");
             }
         }
-        [Authorize(Roles="manager")]
-        // TODO : Missing functionality 
-        // public IActionResult Create()
-        // {
-
-        // }
+        // must be a manager or employee to view the create form
+        [Authorize(Roles="manager, employee")] 
+        public IActionResult Create()
+        {
+            return View();
+        }
+        // add an item to the database and redirect to that items detail page if successful, otherwise re-render form with invalid data
         [HttpPost]
         public IActionResult Add(ItemModel nItem)
         {
-            _context.items.Add(nItem);
-            _context.SaveChanges();
-            return RedirectToAction("Detail", new{itemID = nItem.id});
+            if(ModelState.IsValid)
+            {
+                _context.items.Add(nItem);
+                _context.SaveChanges();
+                return RedirectToAction("Detail", new{itemID = nItem.id});
+            } else 
+            {
+                return View("Create", nItem);
+            }
         }
         [Authorize(Roles="manager, employee")]
         // FIXME : employee1 not able to access endpoint
