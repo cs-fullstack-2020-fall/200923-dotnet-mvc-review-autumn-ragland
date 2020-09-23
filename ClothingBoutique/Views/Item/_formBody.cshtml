@@ -1,23 +1,23 @@
 @model ClothingBoutique.Models.ItemModel
 
-<div>
+<div class="form-group">
     @Html.LabelFor(i => i.itemName)
-    @Html.TextBoxFor(i => i.itemName)
+    @Html.TextBoxFor(i => i.itemName, new{@class = "form-control"})
 </div>
-<div>
+<div class="form-group">
     @Html.LabelFor(i => i.price)
-    $@Html.TextBoxFor(i => i.price)
+    @Html.TextBoxFor(i => i.price, new{@class = "form-control"})
     @Html.ValidationMessageFor(i => i.price)
 </div>
-<div>
+<div class="form-group">
     @Html.LabelFor(i => i.itemCategory)
-    @Html.TextBoxFor(i => i.itemCategory)
+    @Html.TextBoxFor(i => i.itemCategory, new{@class = "form-control"})
 </div>
-<div>
-    @Html.LabelFor(i => i.inStock)
-    @Html.CheckBoxFor(i => i.inStock)
+<div class="form-check">
+    @Html.CheckBoxFor(i => i.inStock, new{@class = "form-check-input"})
+    @Html.LabelFor(i => i.inStock, new{@class = "form-check-label"})
 </div>
-<div>
-    @Html.LabelFor(i => i.featured)
-    @Html.CheckBoxFor(i => i.featured)
+<div class="form-check">
+    @Html.CheckBoxFor(i => i.inStock, new{@class = "form-check-input"})
+    @Html.LabelFor(i => i.featured, new{@class = "form-check-label"})
 </div>
