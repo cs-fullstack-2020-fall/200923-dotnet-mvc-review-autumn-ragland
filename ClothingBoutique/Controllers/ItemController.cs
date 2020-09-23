@@ -91,7 +91,7 @@ namespace ClothingBoutique.Controllers
         public IActionResult Confirmation(int itemID)
         {
             ItemModel mItem = _context.items.FirstOrDefault(m => m.id == itemID);
-            return View();
+            return View(mItem);
         }
         [HttpGet]
         // remove item from db by id

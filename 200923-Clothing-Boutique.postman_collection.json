@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "16371bc0-bf7a-46cd-a7c0-10080def0ae6",
+		"name": "200923-Clothing-Boutique",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/Item",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item Detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/Item/Detail?itemID=3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Item",
+						"Detail"
+					],
+					"query": [
+						{
+							"key": "itemID",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/Item/Delete?itemID=8",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Item",
+						"Delete"
+					],
+					"query": [
+						{
+							"key": "itemID",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "itemName",
+							"value": "Test Item",
+							"type": "text"
+						},
+						{
+							"key": "itemCategory",
+							"value": "Trial",
+							"type": "text"
+						},
+						{
+							"key": "inStock",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "featured",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "25",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:5001/Item/Add",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Item",
+						"Add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "itemName",
+							"value": "Update Test Item",
+							"type": "text"
+						},
+						{
+							"key": "ItemCategory",
+							"value": "Update",
+							"type": "text"
+						},
+						{
+							"key": "inStock",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "featured",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "34",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:5001/Item/Update",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Item",
+						"Update"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
