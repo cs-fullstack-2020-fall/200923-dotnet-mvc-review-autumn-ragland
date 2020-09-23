@@ -93,12 +93,14 @@ namespace ClothingBoutique.Controllers
             ItemModel mItem = _context.items.FirstOrDefault(m => m.id == itemID);
             return View();
         }
-        [HttpDelete]
+        [HttpGet]
+        // remove item from db by id
         public IActionResult Delete(int itemID)
         {
             ItemModel mItem = _context.items.FirstOrDefault(m => m.id == itemID);
 
             _context.Remove(mItem);
+            _context.SaveChanges();
 
             return Redirect("Index");
         }
