@@ -1,11 +1,15 @@
 @model ClothingBoutique.Data.ApplicationDbContext
 
-<h1>List All Items</h1>
-
+<h1>Item Catalog</h1>
+<div class = "itemContainer">
 @foreach (ItemModel item in @Model.items)
 {
-    <partial name = "_itemDetail" model = "@item"/>
-    <a asp-area = "" asp-action = "Detail" asp-route-itemID = "@item.id">
-        <button>Details</button>
-    </a>
+    <div class = "item">
+        <partial name = "_itemDetail" model = "@item"/>
+        <a asp-area = "" asp-action = "Detail" asp-route-itemID = "@item.id">
+            <button class="btn btn-secondary">Details</button>
+        </a>        
+    </div>
 }
+</div>
+

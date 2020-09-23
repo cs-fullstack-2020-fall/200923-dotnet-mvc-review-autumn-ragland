@@ -76,3 +76,12 @@ body {
 .input-validation-error{
   border: 1px solid red;
 }
+.card {
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+
+.itemContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}

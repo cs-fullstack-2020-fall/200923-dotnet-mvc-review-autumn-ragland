@@ -1,14 +1,18 @@
 @model ClothingBoutique.Models.ItemModel
-<div>
-    <p>@Model.itemName</p>
-    <p>@Model.itemCategory</p>
-    <p>$@Model.price</p>
-    @if(@Model.inStock)
+<div class="card" style="width: 18rem;">
+    @if(@Model.featured == true)
     {
-        <p>Item is In Stock</p>
+        <div class="card-header bg-primary text-white">
+            Featured
+        </div>
     }
-    @if(@Model.featured)
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">@Model.itemName</li>
+    <li class="list-group-item">Category : @Model.itemCategory</li>
+    <li class="list-group-item">$@Model.price</li>
+    @if(@Model.inStock == true)
     {
-        <p>Item is Featured</p>
+        <li class="list-group-item">Item in is stock</li>
     }
+  </ul>
 </div>
