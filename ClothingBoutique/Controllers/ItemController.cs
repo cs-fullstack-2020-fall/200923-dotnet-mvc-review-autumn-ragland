@@ -62,19 +62,30 @@ namespace ClothingBoutique.Controllers
             return View(mItem);
         }
         [HttpPost]
+        // update item in db by id
         public IActionResult Update(ItemModel uItem)
         {
             ItemModel mItem = _context.items.FirstOrDefault(m => m.id == uItem.id);
-
-            mItem.itemName = uItem.itemName;
-            mItem.itemCategory = uItem.itemCategory;
-            mItem.inStock = uItem.inStock;
-            mItem.price = uItem.price;
-            mItem.featured = uItem.featured;
-
-            _context.SaveChanges();
-
-            return RedirectToAction("Detail",new{itemID = uItem.id});
+            if(mItem != null)
+            {
+                if(ModelState.IsValid)
+                {
+                    mItem.itemName = uItem.itemName;
+                    mItem.itemCategory = uItem.itemCategory;
+                    mItem.inStock = uItem.inStock;
+                    mItem.price = uItem.price;
+                    mItem.featured = uItem.featured;
+                    _context.SaveChanges();
+                    return RedirectToAction("Detail",new{itemID = uItem.id});
+                } else
+                {
+                    return View("Edit", uItem);
+                }
+            } else 
+            {
+                ViewData["error"] = "Item not Found";
+                return View("Error");
+            }
         }
         [Authorize(Roles="manager")]
         public IActionResult Confirmation(int itemID)
