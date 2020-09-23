@@ -8,21 +8,31 @@ namespace ClothingBoutique.Controllers
 {
     public class ItemController : Controller
     {   
+        // ref to db
         private readonly ApplicationDbContext _context;
         public ItemController(ApplicationDbContext context)
         {
             _context = context;
         }
-        // FIXME : Cannot render view
+        // list all items
         public IActionResult Index()
         {
             return View(_context);
         }
+        // must be logged in to access
         [Authorize]
+        // list item detail by id
         public IActionResult Detail(int itemID)
         {
-            ItemModel mItem = _context.items.FirstOrDefault(m => m.price == itemID);
-            return View(mItem);
+            ItemModel mItem = _context.items.FirstOrDefault(m => m.id == itemID);
+            if(mItem != null)
+            {
+                return View(mItem);
+            } else 
+            {
+                ViewData["error"] = "Item not Found";
+                return View("Error");
+            }
         }
         [Authorize(Roles="manager")]
         // TODO : Missing functionality 
