@@ -54,8 +54,8 @@ namespace ClothingBoutique.Controllers
                 return View("Create", nItem);
             }
         }
+        // must be a manager or employee to access the populated edit form
         [Authorize(Roles="manager, employee")]
-        // FIXME : employee1 not able to access endpoint
         public IActionResult Edit(int itemID)
         {
             ItemModel mItem = _context.items.FirstOrDefault(m => m.id == itemID);
@@ -87,6 +87,7 @@ namespace ClothingBoutique.Controllers
                 return View("Error");
             }
         }
+        // must be a manager to view the delete confirmation page
         [Authorize(Roles="manager")]
         public IActionResult Confirmation(int itemID)
         {
